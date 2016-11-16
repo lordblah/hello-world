@@ -12,6 +12,7 @@ void Background_Music();
 void Sound_Effects();
 void Exit_Program();
 void ClearScreen();
+void SetWindow(int Width, int Height) ;
 
 using namespace std;
 
@@ -50,6 +51,23 @@ void ClearScreen()
 
 	/* Move the cursor home */
 	SetConsoleCursorPosition(hStdOut, homeCoords);
+}
+
+void SetWindow(int Width, int Height)
+{
+    _COORD coord;
+    coord.X = Width;
+    coord.Y = Height;
+
+    _SMALL_RECT Rect;
+    Rect.Top = 0;
+    Rect.Left = 0;
+    Rect.Bottom = Height - 1;
+    Rect.Right = Width - 1;
+
+    HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);      // Get Handle
+    SetConsoleScreenBufferSize(Handle, coord);            // Set Buffer Size
+    SetConsoleWindowInfo(Handle, TRUE, &Rect);            // Set Window Size
 }
 void Sound_Effects()
 {
@@ -92,7 +110,7 @@ void Background_Music()
 	ClearScreen();
 	char background_option;
 	//Displaying Options for the menu
-	cout << "a) Track Choice " << endl;
+	cout << "a) Play Track " << endl;
 	cout << "b) Exit " << endl;
 	//Prompting user to enter an option according to menu
 	cout << "Please select an option : ";
@@ -309,7 +327,19 @@ void window_size_menu()
 	{
 	case 'a':
 	{
-	    system("mode con cols=200 lines=50");
+	    SetWindow(120,100);
+	     int dx=1,i=5,l=0;
+
+     while(l<1)
+     {
+        i=i+dx;
+        if( (i<1) || (i>10)){ dx=-dx; l++;}
+
+        SetWindow(10*i,5*i);
+
+
+     }
+
 		window_size_menu();
 		Sleep(500);
 		setttings_main_menu();
@@ -317,15 +347,36 @@ void window_size_menu()
 	}
 	case 'b':
 	{
-	    system("mode con cols=100 lines=85");
+	    SetWindow(60,40);
+	    int ex=1,j=5,k=0;
+
+     while(k<1)
+     {
+        j=j+ex;
+        if( (j<1) || (j>10)){ ex=-ex; k++;}
+
+        SetWindow(4*j,2*j);
+
+
+     }
 		window_size_menu();
-		Sleep(500);
 		setttings_main_menu();
 		break;
 	}
 	case 'c':
 	{
-	    system("mode con cols=50 lines=50");
+	    SetWindow(100,50);
+	    int fx=1,b=5,c=0;
+
+     while(c<1)
+     {
+        b=b+fx;
+        if( (b<1) || (b>10)){ fx=-fx; c++;}
+
+        SetWindow(6*b,3*b);
+
+
+     }
 		window_size_menu();
 		Sleep(500);
 		setttings_main_menu();
