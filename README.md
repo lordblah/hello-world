@@ -1,5 +1,6 @@
 # Settings_menu
-In this world , there is only one chance to live.
+“If you try and lose then it isn't your fault. But if you don't try and we lose, then it's all your fault.” 
+― Orson Scott Card, Ender's Game
 
 ## TODO
 To play the music you need to have the intro.wav in the same folder as your source code.
