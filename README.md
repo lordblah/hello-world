@@ -1,2 +1,2 @@
 # hello-world
-begniings of the end
+In this world , there is only one chance to live, 
