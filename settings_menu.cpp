@@ -1,6 +1,6 @@
 #include <iostream> // library that contains basic input output functions
 #include <windows.h>
-#include <algorithm> 
+#include <algorithm>
 #include <cstdlib>	//for exit()
 
 void setttings_main_menu();
@@ -155,7 +155,102 @@ void sound_main_menu()
 	}
 
 }
+void text_color_menu()
+{
 
+
+     ClearScreen();
+       HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	char text_color;
+	//Displaying Options for the menu
+	cout << "a) Blue text Color " << endl;
+	cout << "b) Gray text Color" << endl;
+	cout << "c) Red text color" << endl;
+	cout << "d) Back" << endl;
+	//Prompting user to enter an option according to menu
+	cout << "Please select an option : ";
+
+	cin >> text_color;
+	switch (text_color) //main menu selection
+	{
+	case 'a':
+	{
+	    SetConsoleTextAttribute(hConsole, 1);
+
+		text_color_menu();
+		Sleep(500);
+		text_main_menu();
+
+	}
+	case 'b':
+	{
+	    SetConsoleTextAttribute(hConsole, 8);
+		text_color_menu();
+		Sleep(500);
+		text_main_menu();
+		break;
+	}
+	case 'c':
+	{
+	     SetConsoleTextAttribute(hConsole, 12);
+		text_color_menu();
+		Sleep(500);
+		text_main_menu();
+	}
+	default:
+	{
+		text_main_menu();
+	}
+	}
+
+}
+
+void background_color_menu()
+{
+
+    ClearScreen();
+	char background_color;
+	//Displaying Options for the menu
+	cout << "a) White Background Color " << endl;
+	cout << "b) Gray Background Color" << endl;
+	cout << "c) Back" << endl;
+	//Prompting user to enter an option according to menu
+	cout << "Please select an option : ";
+
+	cin >> background_color;
+	switch (background_color) //main menu selection
+	{
+	case 'a':
+	{
+	    SetConsoleTextAttribute( GetStdHandle( STD_INPUT_HANDLE ), 0x5B );
+
+		background_color_menu();
+		Sleep(500);
+		setttings_main_menu();
+
+	}
+	case 'b':
+	{
+		background_color_menu();
+		Sleep(500);
+		setttings_main_menu();
+		break;
+	}
+	case 'c':
+	{
+		background_color_menu();
+		Sleep(500);
+		setttings_main_menu();
+	}
+	default:
+	{
+		display_menu();
+	}
+	}
+
+}
 void text_main_menu()
 {
 	ClearScreen();
@@ -173,14 +268,14 @@ void text_main_menu()
 	{
 	case 'a':
 	{
-		display_menu();
+		background_color_menu();
 		Sleep(500);
 		setttings_main_menu();
 
 	}
 	case 'b':
 	{
-		display_menu();
+		text_color_menu();
 		Sleep(500);
 		setttings_main_menu();
 		break;
@@ -214,21 +309,24 @@ void window_size_menu()
 	{
 	case 'a':
 	{
-		display_menu();
+	    system("mode con cols=200 lines=50");
+		window_size_menu();
 		Sleep(500);
 		setttings_main_menu();
 
 	}
 	case 'b':
 	{
-		display_menu();
+	    system("mode con cols=100 lines=85");
+		window_size_menu();
 		Sleep(500);
 		setttings_main_menu();
 		break;
 	}
 	case 'c':
 	{
-		display_menu();
+	    system("mode con cols=50 lines=50");
+		window_size_menu();
 		Sleep(500);
 		setttings_main_menu();
 	}
