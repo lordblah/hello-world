@@ -1,6 +1,6 @@
 #include <iostream> // library that contains basic input output functions
 #include <windows.h>
-#include <algorithm> 
+#include <algorithm>
 #include <cstdlib>	//for exit()
 
 void setttings_main_menu();
@@ -214,6 +214,7 @@ void window_size_menu()
 	{
 	case 'a':
 	{
+	    system("mode con cols=200 lines=50");
 		display_menu();
 		Sleep(500);
 		setttings_main_menu();
@@ -221,6 +222,7 @@ void window_size_menu()
 	}
 	case 'b':
 	{
+	    system("mode con cols=100 lines=85");
 		display_menu();
 		Sleep(500);
 		setttings_main_menu();
@@ -228,6 +230,7 @@ void window_size_menu()
 	}
 	case 'c':
 	{
+	    system("mode con cols=50 lines=50");
 		display_menu();
 		Sleep(500);
 		setttings_main_menu();
