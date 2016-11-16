@@ -3,7 +3,7 @@ In this world , there is only one chance to live.
 
 ## TODO
 ### Display
-- [ ]Enable window size change with three options
+- [x]Enable window size change with three options
 - [ ]Enable changing background color
 - [ ]Enable Text color change
 - [ ]Enable text speed change
