@@ -2,6 +2,10 @@
 #include <windows.h>
 #include <algorithm>
 #include <cstdlib>	//for exit()
+#include <fstream>	//for file input and output
+#include <Mmsystem.h>
+//these two headers are already included in the <Windows.h> header
+#pragma comment(lib, "Winmm.lib")
 
 void setttings_main_menu();
 void display_menu();
@@ -111,7 +115,8 @@ void Background_Music()
 	char background_option;
 	//Displaying Options for the menu
 	cout << "a) Play Track " << endl;
-	cout << "b) Exit " << endl;
+	cout << "b) Stop track " << endl;
+	cout << "c) Exit " << endl;
 	//Prompting user to enter an option according to menu
 	cout << "Please select an option : ";
 
@@ -120,15 +125,21 @@ void Background_Music()
 	{
 	case 'a':
 	{
+	    PlaySound(TEXT("intro.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 		Background_Music();
-		Sleep(500);
+
 		sound_main_menu();
 
 	}
 	case 'b':
 	{
+	    PlaySound(NULL, 0, 0);
 		sound_main_menu();
 		break;
+	}
+	case 'c':
+	{
+	    sound_main_menu();
 	}
 	default:
 	{
@@ -217,6 +228,10 @@ void text_color_menu()
 		Sleep(500);
 		text_main_menu();
 	}
+	case 'd':
+        {
+            text_main_menu();
+        }
 	default:
 	{
 		text_main_menu();
@@ -304,6 +319,11 @@ void text_main_menu()
 		Sleep(500);
 		setttings_main_menu();
 	}
+	case 'd':
+	{
+		display_menu();
+
+	}
 	default:
 	{
 		display_menu();
@@ -341,8 +361,6 @@ void window_size_menu()
      }
 
 		window_size_menu();
-		Sleep(500);
-		setttings_main_menu();
 
 	}
 	case 'b':
@@ -360,7 +378,6 @@ void window_size_menu()
 
      }
 		window_size_menu();
-		setttings_main_menu();
 		break;
 	}
 	case 'c':
@@ -378,9 +395,14 @@ void window_size_menu()
 
      }
 		window_size_menu();
-		Sleep(500);
-		setttings_main_menu();
+		break;
+
 	}
+	case 'd':
+        {
+            display_menu();
+            break;
+        }
 	default:
 	{
 		display_menu();
@@ -395,7 +417,7 @@ void display_menu()
 	//Displaying Options for the menu
 	cout << "a) Window Size " << endl;
 	cout << "b) Text " << endl;
-	cout << "c) Exit Program" << endl;
+	cout << "c) Back" << endl;
 	//Prompting user to enter an option according to menu
 	cin >> display_option;
 	cout << "Please select an option : ";
