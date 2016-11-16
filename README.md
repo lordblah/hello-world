@@ -5,7 +5,7 @@ In this world , there is only one chance to live.
 ### Display
 - [x]Enable window size change with three options
 - [ ]Enable changing background color
-- [ ]Enable Text color change
+- [x]Enable Text color change
 - [ ]Enable text speed change
 
 ### Sound
